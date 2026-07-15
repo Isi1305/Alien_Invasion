@@ -1,1 +1,1 @@
-Someday I will bring this to an end.
+Irendwann werde ich dieses Projekt zu ende stellen.
