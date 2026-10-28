@@ -1,1 +1,1 @@
-Irendwann werde ich dieses Projekt zu ende stellen.
+A python game from the book Python Crashkurs by Eric Matthes
