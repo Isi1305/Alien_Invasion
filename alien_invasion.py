@@ -31,6 +31,12 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self.bullets.update()
+            # Get rid of bullets thats have disappeared.
+            for bullet in self.bullets.copy():
+                if bullet.rect.bottom <= 0:
+                    self.bullets.remove(bullet)
+                    print(len(self.bullets))
+
             self.update_screen()
             # Limit the frame rate to 60 FPS.
             self.clock.tick(60)
