@@ -30,7 +30,6 @@ class AlienInvasion:
         while True:
             self._check_events()
             self.ship.update()
-            self.bullets.update()
             self._update_bullets()
             # Limit the frame rate to 60 FPS.
             self.clock.tick(60)
