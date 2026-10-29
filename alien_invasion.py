@@ -99,9 +99,17 @@ class AlienInvasion:
 
     def _create_fleet(self):
         """Create the fleet of aliens."""
-        # Creates an alien
+        # Creates an alien and add more until there's no space left
+        # Distance inbetween is one alien
         alien = Alien(self)
+        alien_width = alien.rect.width
+        current_x = alien_width
+        while current_x < (self.settings.screen_width - 2 * alien_width):
+            new_alien = Alien(self)
+            new_alien.x = current_x
+        new_alien.rect.x = current_x
         self.aliens.add(alien)
+            current_x += 2 * alien_width
 
     def update_screen(self):
         """Update images on the screen, and flip to the new screen."""
