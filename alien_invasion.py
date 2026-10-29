@@ -107,8 +107,8 @@ class AlienInvasion:
         while current_x < (self.settings.screen_width - 2 * alien_width):
             new_alien = Alien(self)
             new_alien.x = current_x
-        new_alien.rect.x = current_x
-        self.aliens.add(alien)
+            new_alien.rect.x = current_x
+            self.aliens.add(new_alien)
             current_x += 2 * alien_width
 
     def update_screen(self):
