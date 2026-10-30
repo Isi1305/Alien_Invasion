@@ -102,9 +102,9 @@ class AlienInvasion:
         # Create an alien and add more until there's no space left
         # Distance inbetween is one alien width and height
         alien = Alien(self)
+        alien_width, alien_height = alien.rect.size
         current_x = alien_width
         current_y = alien_height
-        alien_width, alien_height = alien.rect.size
 
         while current_y < (self.settings.screen_height - 3 * alien_height):
             while current_x < (self.settings.screen_width - 2 * alien_width):
@@ -120,6 +120,7 @@ class AlienInvasion:
         new_alien = Alien(self)
         new_alien.x = x_position
         new_alien.rect.x = x_position
+        new_alien.rect.y = y_position 
         self.aliens.add(new_alien)
 
     def update_screen(self):
