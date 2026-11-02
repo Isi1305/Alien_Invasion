@@ -71,6 +71,10 @@ class AlienInvasion:
         elif event.key == pygame.K_SPACE:
             self._fire_bullet()
 
+        # Handle ship speed boost
+        elif event.key == pygame.K_LSHIFT or event.key == pygame.K_RSHIFT:
+            self.ship.boosting = True
+
     def _check_keyup_events(self, event):
         """Respond to key releases."""
         if event.key == pygame.K_RIGHT:
@@ -81,6 +85,10 @@ class AlienInvasion:
             self.ship.moving_up = False
         elif event.key == pygame.K_DOWN:
             self.ship.moving_down = False
+
+        # Handle ship speed boost
+        elif event.key == pygame.K_LSHIFT or event.key == pygame.K_RSHIFT:
+            self.ship.boosting = False
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""

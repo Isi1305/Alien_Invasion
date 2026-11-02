@@ -26,6 +26,8 @@ class Ship:
         self.moving_up = False
         self.moving_down = False
 
+        self.boosting = False
+
     def update(self):
             """Update the ship's position based on the movement flag."""
             # Update the ship's x value, not the rect.
@@ -42,6 +44,20 @@ class Ship:
             # Update rect object from self.x and self.y
             self.rect.x = self.x
             self.rect.y = self.y
+
+            # Handle ship speed boost
+            if self.boosting:
+                speed = self.settings.ship_speed_boost
+            else:
+                speed = self.settings.ship_speed
+            if self.moving_right and self.rect.right < self.screen_rect.right:
+                self.x += speed
+            if self.moving_left and self.rect.left > 0:
+                self.x -= speed
+            if self.moving_up and self.rect.top > 0:
+                self.y -= speed
+            if self.moving_down and self.rect.bottom < self.screen.rect.bottom:
+                self.y += speed
 
     def blitme(self):
         """Draw the ship at its current location."""
