@@ -35,6 +35,7 @@ class AlienInvasion:
             self._check_events()
             self.ship.update()
             self._update_bullets()
+            self._update_aliens()
             self.update_screen()
             # Limit the frame rate to 60 FPS.
             self.clock.tick(60)
@@ -89,6 +90,10 @@ class AlienInvasion:
         # Handle ship speed boost
         elif event.key == pygame.K_LSHIFT or event.key == pygame.K_RSHIFT:
             self.ship.boosting = False
+
+    def _update_aliens(self):
+        """Update the positions of all aliens in the fleet."""
+        self.aliens.update()
 
     def _fire_bullet(self):
         """Create a new bullet and add it to the bullets group."""
